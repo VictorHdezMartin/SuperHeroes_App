@@ -44,7 +44,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:$retroFitVersion")        // RetroFit
     implementation("com.squareup.retrofit2:converter-gson:$retroFitVersion")  // Gson
 
-
 // -------------------------------------------------------------------------------------------------
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

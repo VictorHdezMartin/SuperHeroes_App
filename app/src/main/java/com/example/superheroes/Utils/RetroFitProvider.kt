@@ -9,7 +9,7 @@ class RetroFitProvider {
     companion object {
         fun getRetroFit(): SuperHeroesService {
             val retroFit = Retrofit.Builder()
-                .baseUrl("https://superheroeapi.com/api/${retroFitToken}/")
+                .baseUrl("https://superheroapi.com/api/${retroFitToken}/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
