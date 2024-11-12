@@ -1,4 +1,4 @@
-package com.example.superheroes.Data
+package com.example.superheroes.data
 
 
 import com.google.gson.annotations.SerializedName
@@ -39,7 +39,7 @@ data class Connections(
     @SerializedName("relatives")        val relatives: String
 )
 
-data class Image(
+data class Imagen(
     @SerializedName("url") val url: String
 )
 

@@ -1,7 +1,7 @@
-package com.example.superheroes.Utils
+package com.example.superheroes.utils
 
-import com.example.superheroes.Data.retroFitToken
-import com.example.superheroes.Services.SuperHeroesService
+import com.example.superheroes.data.retroFitToken
+import com.example.superheroes.services.SuperHeroesService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

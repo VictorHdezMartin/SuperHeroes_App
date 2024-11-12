@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -43,6 +47,9 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:$retroFitVersion")        // RetroFit
     implementation("com.squareup.retrofit2:converter-gson:$retroFitVersion")  // Gson
+
+    implementation("com.squareup.picasso:picasso:2.8")
+
 
 // -------------------------------------------------------------------------------------------------
     implementation(libs.androidx.core.ktx)
