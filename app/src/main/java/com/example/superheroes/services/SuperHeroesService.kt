@@ -2,6 +2,7 @@ package com.example.superheroes.services
 
 import com.example.superheroes.data.SuperHero
 import com.example.superheroes.data.SuperHeroesResponse
+import com.example.superheroes.data.fichaSuperHeroe
 import retrofit2.http.GET
 import retrofit2.http.Path
 
