@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.superheroes.R
+import com.example.superheroes.data.FichaSuperHeroe
 import com.example.superheroes.databinding.ActivityDetailBinding
 import com.example.superheroes.utils.RetroFitProvider
-import com.example.superheroes.data.fichaSuperHeroe
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,8 +20,8 @@ class DetailActivity : AppCompatActivity() {
         const val EXTRA_SUPERHERO_ID = "SUPERHEROE_ID"
     }
 
-    lateinit var binding = ActivityDetailBinding
-    lateinit var superhero = fichaSuperHeroe
+    lateinit var binding: ActivityDetailBinding
+    lateinit var superhero: FichaSuperHeroe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +44,13 @@ class DetailActivity : AppCompatActivity() {
     fun loadData() {
         supportActionBar?.title = superhero.name
         Picasso.get().load(superhero.image.url).into(binding.avatarImageView)
+
+        with (binding) {
+            unoTextView.setText(superhero.biography.fullName)
+            dosTextView.setText(superhero.biography.placeOfBirth)
+            tresTextView.setText(superhero.work.base)
+            cuatroTextView.setText(superhero.work.occupation)
+        }
     }
 
     private fun getSuperhero(id: String) {

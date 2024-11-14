@@ -7,11 +7,11 @@ import com.example.superheroes.data.SuperHero
 import com.example.superheroes.databinding.ItemSuperheroBinding
 import com.squareup.picasso.Picasso
 
-class SuperheroAdapter(var items: List<SuperHero>, val onItemClick:(Int)-> Unit) : RecyclerView.Adapter<ViewHolder>() {
+class SuperheroAdapter(var items: List<SuperHero>, val onItemClick:(Int) -> Unit) : RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val superhero = items[position]
-        holder.render(superhero)
 
+        holder.render(superhero)
         holder.itemView.setOnClickListener{
             onItemClick(position)
         }

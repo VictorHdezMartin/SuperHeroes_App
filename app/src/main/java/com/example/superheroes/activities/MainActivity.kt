@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.ViewCompat
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -35,15 +37,18 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        adapter = SuperheroAdapter(superheroList, { position -> val superhero = superheroList[position]})
+        adapter = SuperheroAdapter(superheroList, { position ->
+            val superhero = superheroList[position]
+            navigateToDetail(superhero)
+        })
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerView.layoutManager = GridLayoutManager(this, 3)  // nº columnas
 
         searchSuperheroes("a")
     }
 
     private fun navigateToDetail(superHero: SuperHero){
-        val int = Intent(this, DetailActivity::class.java)
+        val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_SUPERHERO_ID, superHero.id)
         startActivity(intent)
     }

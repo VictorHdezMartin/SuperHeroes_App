@@ -1,8 +1,7 @@
 package com.example.superheroes.services
 
-import com.example.superheroes.data.SuperHero
 import com.example.superheroes.data.SuperHeroesResponse
-import com.example.superheroes.data.fichaSuperHeroe
+import com.example.superheroes.data.FichaSuperHeroe
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -14,7 +13,7 @@ interface SuperHeroesService {
     //suspend fun findSuperHeroesById(@Path("character-id") id: String): SuperHero
 
     @GET("{character-id}")
-    suspend fun findSuperHeroesById(@Path("character-id") id: String): fichaSuperHeroe
+    suspend fun findSuperHeroesById(@Path("character-id") id: String): FichaSuperHeroe
 
 
 }

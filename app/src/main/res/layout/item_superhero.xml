@@ -23,15 +23,15 @@
             <TextView
                 android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:layout_height="30dp"
+                tools:text="nombre del super héroe"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textStyle="bold"
                 android:layout_gravity="bottom"
                 android:background="@color/black"
                 android:textColor="@color/white"
-                tools:text="nombre del super héroe"
                 android:shadowRadius="5"
-                android:shadowColor="@color/white"
-                android:textSize="20sp"/>
-
+                android:shadowColor="@color/white" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -3,7 +3,7 @@ package com.example.superheroes.data
 
 import com.google.gson.annotations.SerializedName
 
-data class fichaSuperHeroe(
+data class FichaSuperHeroe(
     @SerializedName("appearance")  val appearance: Appearance,
     @SerializedName("biography")   val biography: Biography,
     @SerializedName("connections") val connections: Connections,
