@@ -25,6 +25,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
@@ -41,6 +42,23 @@ class DetailActivity : AppCompatActivity() {
         getSuperhero(id)
     }
 
+// Cargamos la ficha del super heroe
+    private fun getSuperhero(id: String) {
+        val service = RetroFitProvider.getRetroFit()                        // creamos el objeto para hacer la llamada a la API
+
+        CoroutineScope(Dispatchers.IO).launch {            // hay que hacerlo en un hilo secundario
+            try {
+                superhero = service.findSuperHeroesById(id)                 // hacemos la llamada a la API y parseamos el JSON
+
+                CoroutineScope(Dispatchers.Main).launch {  // llamamos al hilo principal para cargar los datos
+                    loadData()
+                }
+            } catch (e: Exception) {
+                Log.e("API", e.stackTraceToString())
+            }
+        }
+    }
+
     fun loadData() {
         supportActionBar?.title = superhero.name
         Picasso.get().load(superhero.image.url).into(binding.avatarImageView)
@@ -50,22 +68,6 @@ class DetailActivity : AppCompatActivity() {
             dosTextView.setText(superhero.biography.placeOfBirth)
             tresTextView.setText(superhero.work.base)
             cuatroTextView.setText(superhero.work.occupation)
-        }
-    }
-
-    private fun getSuperhero(id: String) {
-        val service = RetroFitProvider.getRetroFit()
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                superhero = service.findSuperHeroesById(id)
-
-                CoroutineScope(Dispatchers.Main).launch {
-                    loadData()
-                }
-            } catch (e: Exception) {
-                Log.e("API", e.stackTraceToString())
-            }
         }
     }
 }

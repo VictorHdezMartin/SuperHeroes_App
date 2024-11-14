@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -38,13 +39,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         adapter = SuperheroAdapter(superheroList, { position ->
+
             val superhero = superheroList[position]
             navigateToDetail(superhero)
         })
+
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)  // nº columnas
 
-        searchSuperheroes("a")
+        searchSuperheroes(" ")
     }
 
     private fun navigateToDetail(superHero: SuperHero){
@@ -76,11 +79,11 @@ class MainActivity : AppCompatActivity() {
     private fun searchSuperheroes(query: String) {
         val service = RetroFitProvider.getRetroFit()
 
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.IO).launch {                   // hay que ejecutar la consulta en un hilo secundario
             try {
                 val result = service.findSuperHeroesByName(query)
 
-                CoroutineScope(Dispatchers.Main).launch {
+                CoroutineScope(Dispatchers.Main).launch {         // volvemos al hilo principal para mostrar resultados
                     if (result.response == "success") {
                         superheroList = result.results
                         adapter.updateItems(superheroList)
