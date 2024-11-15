@@ -26,12 +26,12 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        enableEdgeToEdge()
+        enableEdgeToEdge()                                                                          // propio de android
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->           // propio de android
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
         getSuperhero(id)
     }
 
-// Cargamos la ficha del super heroe
+// Cargamos la ficha del super heroe  --------------------------------------------------------------
     private fun getSuperhero(id: String) {
         val service = RetroFitProvider.getRetroFit()                        // creamos el objeto para hacer la llamada a la API
 
@@ -59,6 +59,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+// Cargamos los elementos de la ficha del super heroe  ---------------------------------------------
     fun loadData() {
         supportActionBar?.title = superhero.name
         Picasso.get().load(superhero.image.url).into(binding.avatarImageView)

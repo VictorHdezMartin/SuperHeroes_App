@@ -9,9 +9,10 @@ import com.squareup.picasso.Picasso
 
 class SuperheroAdapter(var items: List<SuperHero>, val onItemClick:(Int) -> Unit) : RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val superhero = items[position]
 
-        holder.render(superhero)
+        val superhero_selected = items[position]
+
+        holder.render(superhero_selected)
         holder.itemView.setOnClickListener{
             onItemClick(position)
         }
@@ -34,7 +35,7 @@ class SuperheroAdapter(var items: List<SuperHero>, val onItemClick:(Int) -> Unit
 
 class ViewHolder(val binding: ItemSuperheroBinding) : RecyclerView.ViewHolder(binding.root) {
     fun render(superhero: SuperHero) {
-        binding.nameTextView.text = superhero.name
-        Picasso.get().load(superhero.image.url).into(binding.avatarImageView)
+        binding.nameTextView.text = superhero.name                                 // asignamos nombre del superheroe
+        Picasso.get().load(superhero.image.url).into(binding.avatarImageView)      // cargamos la imagen del superheroe con la API Picasso
     }
 }

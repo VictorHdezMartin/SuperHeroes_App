@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -18,6 +19,7 @@ import com.example.superheroes.utils.RetroFitProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -38,11 +40,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        adapter = SuperheroAdapter(superheroList, { position ->
-
-            val superhero = superheroList[position]
-            navigateToDetail(superhero)
-        })
+        adapter = SuperheroAdapter(superheroList, { position -> val superhero = superheroList[position]
+                                                                navigateToDetail(superhero) })
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)  // nº columnas
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         superheroList = result.results
                         adapter.updateItems(superheroList)
                     } else {
-                        // TODO: Mostrar mensaje de que no se ha encontrado nada
+                        Toast.makeText(this, "No se han encontrado resultados", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {
