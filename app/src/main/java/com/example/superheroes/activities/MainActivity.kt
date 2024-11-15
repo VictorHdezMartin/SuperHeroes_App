@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.superheroes.R
 import com.example.superheroes.adapters.SuperheroAdapter
-import com.example.superheroes.data.SuperHero
+import com.example.superheroes.data.SuperHeroeClass
 import com.example.superheroes.databinding.ActivityMainBinding
 import com.example.superheroes.utils.RetroFitProvider
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     lateinit var adapter: SuperheroAdapter
-    var superheroList: List<SuperHero> = emptyList()
+    var superheroList: List<SuperHeroeClass> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         searchSuperheroes(" ")
     }
 
-    private fun navigateToDetail(superHero: SuperHero){
+    private fun navigateToDetail(superHero: SuperHeroeClass){
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_SUPERHERO_ID, superHero.id)
         startActivity(intent)
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         superheroList = result.results
                         adapter.updateItems(superheroList)
                     } else {
-                        Toast.makeText(this, "No se han encontrado resultados", Toast.LENGTH_SHORT).show()
+                       // Toast.makeText(this, "No se han encontrado resultados", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {

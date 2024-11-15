@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class SuperHeroesResponse(
     @SerializedName("response")    val response: String,
     @SerializedName("results-for") val resultFor: String,
-    @SerializedName("results")     val results: List<SuperHero>,
+    @SerializedName("results")     val results: List<SuperHeroeClass>,
     ){ }
 
-data class SuperHero (
+data class SuperHeroeClass (
     @SerializedName("id")      val id: String,
     @SerializedName("name")    val name: String,
     @SerializedName ("image")  val image: Image,
