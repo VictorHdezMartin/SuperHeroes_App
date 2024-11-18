@@ -8,108 +8,150 @@
     android:layout_height="match_parent"
     tools:context=".activities.DetailActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <ImageView
             android:id="@+id/avatarImageView"
             android:layout_width="match_parent"
             android:layout_height="360dp"
-            android:layout_margin="8dp"
-            android:layout_marginTop="56dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintStart_toStartOf="@+id/avatarImageView">
+            android:layout_height="0dp"
+            android:layout_marginTop="-32dp"
+            app:cardCornerRadius="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarImageView">
 
-            <TextView
-                android:id="@+id/unoTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:background="@color/black"
-                android:shadowColor="@color/white"
-                android:shadowRadius="5"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/navigationBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:menu="@menu/menu_activity_detail_navigation" />
+
+                <include
+                    android:id="@+id/biographyContent"
+                    layout="@layout/content_biografia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" />
+
+                <include
+                    android:id="@+id/appearanceContent"
+                    layout="@layout/content_apariencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" />
+
+                <include
+                    android:id="@+id/statsContent"
+                    layout="@layout/content_estadisticas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp" />
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintStart_toStartOf="@+id/unoTextView">
-
-            <TextView
-                android:id="@+id/dosTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:background="@color/black"
-                android:shadowColor="@color/white"
-                android:shadowRadius="5"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintStart_toStartOf="@+id/dosTextView">
-
-            <TextView
-                android:id="@+id/tresTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:background="@color/black"
-                android:shadowColor="@color/white"
-                android:shadowRadius="5"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:layout_constraintStart_toStartOf="@+id/tresTextView">
-
-            <TextView
-                android:id="@+id/cuatroTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center"
-                android:background="@color/black"
-                android:shadowColor="@color/white"
-                android:shadowRadius="5"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/negro"/>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:layout_constraintStart_toStartOf="@+id/avatarImageView">
+
+    <TextView
+        android:id="@+id/unoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:background="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowRadius="5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/negro"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:layout_constraintStart_toStartOf="@+id/unoTextView">
+
+    <TextView
+        android:id="@+id/dosTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:background="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowRadius="5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/negro"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:layout_constraintStart_toStartOf="@+id/dosTextView">
+
+    <TextView
+        android:id="@+id/tresTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:background="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowRadius="5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/negro"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:layout_constraintStart_toStartOf="@+id/tresTextView">
+
+    <TextView
+        android:id="@+id/cuatroTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:background="@color/black"
+        android:shadowColor="@color/white"
+        android:shadowRadius="5"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/negro"/>
+    </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    -->

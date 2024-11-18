@@ -63,12 +63,13 @@ class DetailActivity : AppCompatActivity() {
     fun loadData() {
         supportActionBar?.title = superhero.name
         Picasso.get().load(superhero.image.url).into(binding.avatarImageView)
-
+/*
         with (binding) {
             unoTextView.setText(superhero.biography.fullName)
             dosTextView.setText(superhero.biography.placeOfBirth)
             tresTextView.setText(superhero.work.base)
             cuatroTextView.setText(superhero.work.occupation)
         }
+        */
     }
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Super Héroes</string>
+
+    <string name="no_results">No hay resutados para \"%1$s\"!</string>
+    <string name="error">¡Ha ocurrido un error inesperado!</string>
+
+    <string name="menu_biography">Biografía</string>
+    <string name="menu_appearance">Apariencia</string>
+    <string name="menu_stats">Estadísticas</string>
 </resources>

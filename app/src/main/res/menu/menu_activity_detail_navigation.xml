@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/menu_biography"
+            android:icon="@drawable/icono_biografia"
+            app:showAsAction="always"
+            android:title="@string/menu_biography"/>
+        <item
+            android:id="@+id/menu_appearance"
+            android:icon="@drawable/icono_apariencia"
+            app:showAsAction="always"
+            android:title="@string/menu_appearance"/>
+        <item
+            android:id="@+id/menu_stats"
+            android:icon="@drawable/icono_estadisticas"
+            app:showAsAction="always"
+            android:title="@string/menu_stats"/>
+    </menu>
+
